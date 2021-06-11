@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <title><% if (editing) { %>Edit Student<% } else { %>New Student<% } %></title>
+</head>
+<body>
+    <form method="POST" action="<% if (editing) { %>/postUpdatedStudent<% } else { %>/postNewStudent<% } %>">
+      <h2 style="text-align: center;"><% if (editing) { %>Edit Student<% } else { %>Add Student<% } %></h2>
+        <div class="form-group">
+          <input type="text" class="form-control" name="id" hidden value="<%if (editing) {%><%=student['id']%><% } %>" >
+        </div>
+        <div class="form-group">
+          <label for="name">Student Name</label>
+          <input type="text" class="form-control" name="name" value="<%if (editing) {%><%=student['Student Name']%><% } %>" >
+        </div>
+        <div class="form-group">
+          <label for="fname">Father Name</label>
+          <input type="text" class="form-control" name="fname" value="<%if (editing) {%><%=student['Father Name']%><% } %>" >
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" name="email" value="<%if (editing) {%><%=student['Email Address']%><% } %>" >
+        </div>
+        <div class="form-group">
+          <label for="dept">Department</label>
+          <input type="text" class="form-control" name="dept" value="<%if (editing) {%><%=student['Department']%><% } %>" >
+        </div>
+        <button type="submit" class="btn btn-primary"><% if (editing) { %>Update Student<% } else { %>Add Student<% } %></button>
+      </form>
+</body>
+</html>
